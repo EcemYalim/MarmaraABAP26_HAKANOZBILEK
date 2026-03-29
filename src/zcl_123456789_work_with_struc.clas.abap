@@ -14,7 +14,6 @@ ENDCLASS.
 CLASS zcl_123456789_work_with_struc IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
 
-
     TYPES: BEGIN OF st_connection,
              airport_from_id TYPE /dmo/airport_from_id,
              airport_to_id   TYPE /dmo/airport_to_id,
@@ -39,8 +38,6 @@ CLASS zcl_123456789_work_with_struc IMPLEMENTATION.
           connection_multi TYPE st_connection_multi.
 
     DATA connection_full TYPE /DMO/I_Connection.
-
-
 * Example 1: Correspondence between FIELDS and INTO
 **********************************************************************
     SELECT SINGLE
@@ -50,7 +47,6 @@ CLASS zcl_123456789_work_with_struc IMPLEMENTATION.
         AND ConnectionID = '0400'
        INTO @connection.
 
-
 * Example 2: FIELDS *
 **********************************************************************
     SELECT SINGLE
@@ -59,7 +55,6 @@ CLASS zcl_123456789_work_with_struc IMPLEMENTATION.
      WHERE AirlineID = 'LH'
        AND ConnectionID = '0400'
       INTO @connection_full.
-
 
 * Example 3: INTO CORRESPONDING FIELDS
 **********************************************************************
@@ -95,7 +90,6 @@ CLASS zcl_123456789_work_with_struc IMPLEMENTATION.
      WHERE AirlineID    = 'LH'
        AND ConnectionID = '0400'
       INTO @DATA(connection_inline).
-
 
 * Example 6: Joins
 **********************************************************************

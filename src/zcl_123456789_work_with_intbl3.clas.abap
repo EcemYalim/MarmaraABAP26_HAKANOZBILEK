@@ -101,17 +101,14 @@ CLASS zcl_123456789_work_with_intbl3 IMPLEMENTATION.
     ENDIF.
     CLEAR ls_employee.
 
-
     "2-) Sort standard table by first name for binary search
     SORT lt_standard BY ad.
-    " Binary search by first name
     READ TABLE lt_standard INTO ls_employee WITH KEY ad = 'Zeynep' BINARY SEARCH.
     IF sy-subrc = 0.
       out->write( |Employee found: { ls_employee-pernr } |
               &&  | { ls_employee-ad } { ls_employee-soyad } | ).
     ENDIF.
     CLEAR ls_employee.
-
 
     "3-) Search on sorted table (automatic binary search)
     READ TABLE lt_sorted INTO ls_employee WITH TABLE KEY pernr = 1002.
@@ -120,7 +117,6 @@ CLASS zcl_123456789_work_with_intbl3 IMPLEMENTATION.
               &&  | { ls_employee-ad } { ls_employee-soyad } | ).
     ENDIF.
     CLEAR ls_employee.
-
 
     "4-) Search on hashed table
     READ TABLE lt_hashed INTO ls_employee WITH TABLE KEY pernr = 1004.

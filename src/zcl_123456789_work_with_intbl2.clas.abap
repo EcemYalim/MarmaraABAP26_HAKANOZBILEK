@@ -16,7 +16,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-
     TYPES: BEGIN OF st_airport,
              airportid TYPE /dmo/airport_id,
              name      TYPE /dmo/airport_name,
@@ -26,7 +25,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
                           WITH NON-UNIQUE KEY airportid.
 
     DATA airports TYPE tt_airports.
-
 
 * Example 1: Structured Variables in SELECT SINGLE ... INTO ...
 **********************************************************************
@@ -40,7 +38,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
 
 * Example 2: Internal Tables in SELECT ... INTO TABLE ...
 **********************************************************************
-
     DATA airports_full TYPE STANDARD TABLE OF /DMO/I_Airport
                             WITH NON-UNIQUE KEY AirportID.
 
@@ -59,7 +56,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
      WHERE City = 'London'
       INTO CORRESPONDING FIELDS OF TABLE @airports.
 
-
 * Example 4: Inline Declaration
 **********************************************************************
     SELECT
@@ -67,7 +63,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
     FIELDS AirportID, Name AS AirportName
      WHERE City = 'London'
      INTO TABLE @DATA(airports_inline).
-
 
 ** Example 4: ORDER BY and DISTINCT
 ***********************************************************************
@@ -80,7 +75,6 @@ CLASS zcl_123456789_work_with_intbl2 IMPLEMENTATION.
 
 * Example 5: UNION (ALL)
 **********************************************************************
-
     SELECT FROM /DMO/I_Carrier
            FIELDS 'Airline' AS type, AirlineID AS Id, Name
            WHERE CurrencyCode = 'GBP'

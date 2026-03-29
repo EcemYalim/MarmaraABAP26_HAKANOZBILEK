@@ -36,7 +36,6 @@ ENDCLASS.
 CLASS lcl_connection IMPLEMENTATION.
 
   METHOD class_constructor.
-
   ENDMETHOD.
 
   METHOD constructor.
@@ -44,12 +43,9 @@ CLASS lcl_connection IMPLEMENTATION.
     IF i_carrier_id IS INITIAL OR i_connection_id IS INITIAL.
       RAISE EXCEPTION TYPE cx_abap_invalid_value.
     ENDIF.
-
     me->carrier_id = i_carrier_id.
     me->connection_id = i_connection_id.
-
     conn_counter = conn_counter + 1.
-
   ENDMETHOD.
 
   METHOD get_attributes.

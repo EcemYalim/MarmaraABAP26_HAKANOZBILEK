@@ -32,6 +32,7 @@ CLASS lcl_connection IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD set_attributes.
 
     carrier_id = i_carrier_id.

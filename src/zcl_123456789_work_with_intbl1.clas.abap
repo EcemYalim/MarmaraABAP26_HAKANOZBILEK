@@ -16,8 +16,6 @@ CLASS zcl_123456789_work_with_intbl1 IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
-
-
     TYPES: BEGIN OF st_connection,
              carrier_id      TYPE /dmo/carrier_id,
              connection_id   TYPE /dmo/connection_id,
@@ -82,7 +80,6 @@ CLASS zcl_123456789_work_with_intbl1 IMPLEMENTATION.
 
 * Example 2: LOOP with key access
 **********************************************************************
-
     LOOP AT connections INTO connection
                        WHERE airport_from_id <> 'MIA'.
 
@@ -97,14 +94,11 @@ CLASS zcl_123456789_work_with_intbl1 IMPLEMENTATION.
     carrier-currency_code = 'JPY'.
     MODIFY TABLE carriers FROM carrier.
 
-
 * Example 4: MODIFY (index access)
 **********************************************************************
     carrier-carrier_id    = 'LH'.
     carrier-currency_code = 'EUR'.
     MODIFY carriers FROM carrier INDEX 1.
-
-
 
 * Example 5: MODIFY in a LOOP
     LOOP AT carriers INTO carrier
