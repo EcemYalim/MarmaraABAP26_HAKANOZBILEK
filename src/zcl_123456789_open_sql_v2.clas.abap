@@ -26,11 +26,11 @@ CLASS zcl_123456789_open_sql_v2 IMPLEMENTATION.
 * 1. INSERT DATA
 *---------------------------------------------------------------------*
     lt_insert = VALUE #(
-      ( emp_id = '0000000001' name = 'Ali'   currency = 'TRY' unit = 'PC' amount = 1000 quantity = 10 )
-      ( emp_id = '0000000002' name = 'Veli'  currency = 'TRY' unit = 'PC' amount = 2000 quantity = 20 )
-      ( emp_id = '0000000003' name = 'Ayse'  currency = 'USD' unit = 'KG' amount = 5000 quantity = 5 )
-      ( emp_id = '0000000004' name = 'John'  currency = 'EUR' unit = 'KG' amount = 7000 quantity = 7 )
-      ( emp_id = '0000000005' name = 'Ahmet' currency = 'TRY' unit = 'PC' amount = 3000 quantity = 15 )
+      ( emp_id = '0000000001' name = 'Ali'   currency = 'TRY' unit = 'PC' amount = '1000.01' quantity = 10 )
+      ( emp_id = '0000000002' name = 'Veli'  currency = 'TRY' unit = 'PC' amount = '2000.45' quantity = 20 )
+      ( emp_id = '0000000003' name = 'Ayse'  currency = 'USD' unit = 'KG' amount = '5000.55' quantity = 5 )
+      ( emp_id = '0000000004' name = 'John'  currency = 'EUR' unit = 'KG' amount = '7000.00' quantity = 7 )
+      ( emp_id = '0000000005' name = 'Ahmet' currency = 'TRY' unit = 'PC' amount = '3000.99' quantity = 15 )
     ).
 
     INSERT z123456789_t_emp FROM TABLE @lt_insert.
@@ -44,7 +44,9 @@ CLASS zcl_123456789_open_sql_v2 IMPLEMENTATION.
            abs( amount )            AS abs_val,
            ceil( amount )           AS ceil_val,
            floor( amount )          AS floor_val,
-           round( amount, 0 )       AS round_val
+           round( amount, 0 )       AS round_val,
+           round( amount, 1 )       AS round_val2,
+           round( amount, 2 )       AS round_val3
       FROM z123456789_t_emp
       INTO TABLE @DATA(lt_num).
 
@@ -182,7 +184,7 @@ CLASS zcl_123456789_open_sql_v2 IMPLEMENTATION.
 
 
 
-    out->write( '23 Advanced SQL Queries Executed.' ).
+    out->write( 'SQL Queries Executed.' ).
 
   ENDMETHOD.
 
