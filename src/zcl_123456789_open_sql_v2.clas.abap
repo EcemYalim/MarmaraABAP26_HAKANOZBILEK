@@ -17,20 +17,22 @@ CLASS zcl_123456789_open_sql_v2 IMPLEMENTATION.
 * DATA PREPARATION
 *---------------------------------------------------------------------*
     DATA:
-      lt_emp    TYPE TABLE OF z123456789_t_emp,
       lt_insert TYPE TABLE OF z123456789_t_emp.
-
     DELETE FROM z123456789_t_emp.
-
 *---------------------------------------------------------------------*
 * 1. INSERT DATA
 *---------------------------------------------------------------------*
     lt_insert = VALUE #(
-      ( emp_id = '0000000001' name = 'Ali'   currency = 'TRY' unit = 'PC' amount = '1000.01' quantity = 10 )
-      ( emp_id = '0000000002' name = 'Veli'  currency = 'TRY' unit = 'PC' amount = '2000.45' quantity = 20 )
-      ( emp_id = '0000000003' name = 'Ayse'  currency = 'USD' unit = 'KG' amount = '5000.55' quantity = 5 )
-      ( emp_id = '0000000004' name = 'John'  currency = 'EUR' unit = 'KG' amount = '7000.00' quantity = 7 )
-      ( emp_id = '0000000005' name = 'Ahmet' currency = 'TRY' unit = 'PC' amount = '3000.99' quantity = 15 )
+      ( emp_id = '0000000001' name = 'Ali'   currency = 'TRY' unit = 'PC'
+      amount = '1000.01' quantity = 10 )
+      ( emp_id = '0000000002' name = 'Veli'  currency = 'TRY' unit = 'PC'
+      amount = '2000.45' quantity = 20 )
+      ( emp_id = '0000000003' name = 'Ayse'  currency = 'USD' unit = 'KG'
+      amount = '5000.55' quantity = 5 )
+      ( emp_id = '0000000004' name = 'John'  currency = 'EUR' unit = 'KG'
+      amount = '7000.00' quantity = 7 )
+      ( emp_id = '0000000005' name = 'Ahmet' currency = 'TRY' unit = 'PC'
+      amount = '3000.99' quantity = 15 )
     ).
 
     INSERT z123456789_t_emp FROM TABLE @lt_insert.
