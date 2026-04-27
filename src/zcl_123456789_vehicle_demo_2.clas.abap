@@ -18,10 +18,12 @@ CLASS zcl_123456789_vehicle_demo_2 IMPLEMENTATION.
     DATA: lo_vehicle TYPE REF TO zcl_vehicle.
 
     SELECT SINGLE *
-         FROM ztvhc_123456789
-         WHERE id = '1'
-         INTO @DATA(ls_data).
+      FROM zvhc_123456789
+      WHERE id = '1'
+      INTO @DATA(ls_data).
 
+
+    " TYPE alanına göre doğru nesne oluşturulur (Factory mantığı)
     CASE ls_data-type.
 
       WHEN 'CAR'.
@@ -49,6 +51,11 @@ CLASS zcl_123456789_vehicle_demo_2 IMPLEMENTATION.
           iv_engine_cc = ls_data-engine_cc ).
 
     ENDCASE.
+
+    " hangi nesne ise onun methodu çalışır
+    out->write( |Type: { lo_vehicle->get_type( ) }| ).
+    out->write( lo_vehicle->get_description( ) ).
+    out->write( '-------------------' ).
 
   ENDMETHOD.
 

@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_VHC_123456789'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_VHC_123456789'
+  }
+}
+define service ZUI_VHC_123456789_O4 provider contracts odata_v4_ui {
+  expose ZC_VHC_123456789;
+}

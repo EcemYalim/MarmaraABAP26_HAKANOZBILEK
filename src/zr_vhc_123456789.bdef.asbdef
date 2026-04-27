@@ -1,0 +1,54 @@
+managed implementation in class ZBP_R_VHC_123456789 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_VHC_123456789 alias ZrVhc123456789
+persistent table ZVHC_123456789
+extensible
+draft table ZVHC_123456789_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   ID;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   ID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZVHC_123456789 corresponding extensible
+  {
+    ID = ID;
+    Type = TYPE;
+    Brand = BRAND;
+    Model = MODEL;
+    Doors = DOORS;
+    Capacity = CAPACITY;
+    Passengers = PASSENGERS;
+    EngineCc = ENGINE_CC;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

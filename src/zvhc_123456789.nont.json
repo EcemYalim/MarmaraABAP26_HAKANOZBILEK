@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZVHC_123456789",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZVHC_123456789",
+  "sapObjectType": "ZVHC_123456789",
+  "rootNode": true
+}
