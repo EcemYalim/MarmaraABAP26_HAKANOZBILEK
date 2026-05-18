@@ -24,6 +24,7 @@ annotate view ZC_USR_123456789 with
   @UI.selectionField: [ {
     position: 10 
   } ]
+  @UI.hidden: true
   UUID;
   
   @UI.identification: [ {

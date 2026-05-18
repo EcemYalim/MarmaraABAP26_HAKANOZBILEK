@@ -148,9 +148,9 @@ CLASS lcl_eml_service IMPLEMENTATION.
       REPORTED DATA(lt_reported)
       MAPPED DATA(lt_mapped).
 
-    COMMIT ENTITIES.
-
     IF lt_failed IS INITIAL.
+
+      COMMIT ENTITIES.
 
       mo_out->write(
         'EML INSERT SUCCESSFUL' ).
