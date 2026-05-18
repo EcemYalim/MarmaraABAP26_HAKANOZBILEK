@@ -1,0 +1,49 @@
+managed implementation in class ZBP_R_PER_123456789 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_PER_123456789 alias ZrPer123456789
+persistent table ZPER_123456789
+extensible
+draft table ZPER_123456789_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZPER_123456789 corresponding extensible
+  {
+    UUID = UUID;
+    Uname = UNAME;
+    Firstname = FIRSTNAME;
+    Lastname = LASTNAME;
+    Birthdate = BIRTHDATE;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination O2'
+define service ZUI_TCON_123456789_O2 {
+  expose ZR_TCON_123456789;
+}
