@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZUSR_123456789",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZUSR_123456789",
+  "sapObjectType": "ZUSR_123456789",
+  "rootNode": true
+}
